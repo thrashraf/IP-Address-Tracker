@@ -94,6 +94,9 @@ body .modal .container .header-modal h3 {
   color: #000;
   font-weight: 500;
 }
+body .modal .container .header-modal .isp {
+  font-size: 16px;
+}
 body section {
   height: 100%;
   width: 100%;
