@@ -61,12 +61,13 @@ const getGeoLocation = async() => {
         const lat = geoData.location.lat;
         const lng = geoData.location.lng;
         const ipAddress = geoData.ip;
-        const locate = geoData.location.region;
+        const region = geoData.location.region;
+        const country = geoData.location.country;
         const timeZone = geoData.location.timezone;
         const isp = geoData.isp;
 
         currentIpAddress.innerHTML = ipAddress;
-        currentLocation.innerHTML = locate;
+        currentLocation.innerHTML = `${region}, ${country}`;
         currentTimeZone.innerHTML = timeZone;
         currentIsp.innerHTML = isp;
 
