@@ -1,0 +1,187 @@
+@import '_variable';
+@import '_global';
+
+
+body {
+
+
+    font-family: $font;
+
+    header {
+        height: 300px;
+        text-align: center;
+        background-image: url('/images/pattern-bg.png');
+        background-repeat: no-repeat;
+        background-size: cover;
+
+
+        .header-container {
+
+            padding-top: 30px;
+
+            h3 {
+                font-size: 30px;
+                font-weight: 400;
+                margin: 0;
+                color: #fff;
+            }
+
+            .search-container{
+
+                margin: 20px 10%;
+                display: flex;
+
+                input {
+                    width: 100%;
+                    padding: 18px;
+                    border: 1px solid #000;
+                    border-radius: 10px 0 0 10px;
+                    font-family: $font;
+                    font-weight: 500;
+                    font-size: 18px;
+                }
+
+                input:focus {
+
+                    outline: none;
+                }
+
+                button {
+                    cursor: pointer;
+                    background-color: #000;
+                    color: #fff;
+                    padding: 10px 20px;
+                    border: 2px solid #000;
+                    border-radius: 0 20px 20px 0;
+                }
+            }
+
+            
+
+            
+        }
+    }
+
+    .modal {
+
+                
+        .container {
+
+            position: relative;
+            display: -webkit-box;
+            display: -ms-flexbox;
+            display: flex;
+            -webkit-box-pack: center;
+            -ms-flex-pack: center;
+            justify-content: center;
+            
+
+            .header-modal {
+                z-index: 666;
+                border-radius: 10px;
+                position: absolute;
+                bottom: -150px;
+                text-align: center;
+                padding: 20px;
+                list-style: none;
+                background-color: #fff;
+                width: 85%;
+
+                p {
+                    font-size: 14px;
+                    margin: 0;
+                    font-weight: 700;
+                    color: $Dark-Gray;
+                }
+
+                h3 {
+                    margin: 10px 0 5px 0;
+                    font-size: 20px;
+                    color: #000;
+                    font-weight: 500;
+                }
+            }
+        }
+
+    }
+
+    section {
+        height: 100%;
+        width: 100%;
+
+        #mapid{
+            position: relative;
+            height: 100%;
+
+
+
+        }
+
+    }
+}
+
+
+@media all and (min-width: 640px) {
+
+    body {
+
+        header {
+
+            height: 230px;
+
+            .header-container {
+
+                .search-container {
+
+                    margin: 15px 25%;
+                }
+            }
+
+
+        }
+
+        .modal {
+
+            .container {
+
+                .header-modal {
+                    bottom: -50px;
+                    display: grid;
+                    grid-template-columns: repeat(4, 1fr);
+                    
+
+                    h3 {
+                        margin: 0;
+                        padding: 10px;
+                        font-size: 15px;
+                    }
+
+        
+                    .ipAddress{
+                        border-right: 2px solid $Dark-Gray;
+                        grid-column-start: 1;
+                        grid-column-end: 2;
+                        grid-row-start: 2;
+                        grid-row-end: 3;
+                    }
+
+                    .location {
+                        border-right: 2px solid $Dark-Gray;
+                        grid-column-start: 2;
+                        grid-column-end: 3;
+                        grid-row-start: 2;
+                        grid-row-end: 3;
+                    }
+
+                    .timeZone {
+                        border-right: 2px solid $Dark-Gray;
+                        grid-column-start: 3;
+                        grid-column-end: 4;
+                        grid-row-start: 2;
+                        grid-row-end: 3;  
+                    }
+                }
+            }
+        }
+    }
+}
