@@ -150,7 +150,7 @@ body {
             .container {
 
                 .header-modal {
-                    bottom: -50px;
+                    bottom: -90px;
                     display: grid;
                     grid-template-columns: repeat(4, 1fr);
                     
@@ -184,6 +184,12 @@ body {
                         grid-column-end: 4;
                         grid-row-start: 2;
                         grid-row-end: 3;  
+                    }
+
+                    .isp {
+
+
+                        font-size: 17px;
                     }
                 }
             }

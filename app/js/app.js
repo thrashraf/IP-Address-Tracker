@@ -58,17 +58,17 @@ const getGeoLocation = async() => {
       
         const geoData = await getRequest(`https://geo.ipify.org/api/v1?apiKey=at_XN3W4lPAL1BdazDkVUqRlf0fAMzKd&ipAddress=${input.value}`);
         console.log(geoData);
-        const lat = geoData.location.lat;
-        const lng = geoData.location.lng;
+        const lat       = geoData.location.lat;
+        const lng       = geoData.location.lng;
         const ipAddress = geoData.ip;
-        const region = geoData.location.region;
-        const country = geoData.location.country;
-        const timeZone = geoData.location.timezone;
-        const isp = geoData.isp;
+        const region    = geoData.location.region;
+        const country   = geoData.location.country;
+        const timeZone  = geoData.location.timezone;
+        const isp       = geoData.isp;
 
-        currentIpAddress.innerHTML = ipAddress;
-        currentLocation.innerHTML = `${region}, ${country}`;
-        currentTimeZone.innerHTML = timeZone;
+        currentIpAddress.innerHTML  = ipAddress;
+        currentLocation.innerHTML   = `${region}, ${country}`;
+        currentTimeZone.innerHTML   = timeZone;
         currentIsp.innerHTML = isp;
 
         L.marker([lat, lng]).addTo(mymap);

@@ -114,7 +114,7 @@ body section #mapid {
     margin: 15px 25%;
   }
   body .modal .container .header-modal {
-    bottom: -50px;
+    bottom: -90px;
     display: grid;
     grid-template-columns: repeat(4, 1fr);
   }
@@ -143,5 +143,8 @@ body section #mapid {
     grid-column-end: 4;
     grid-row-start: 2;
     grid-row-end: 3;
+  }
+  body .modal .container .header-modal .isp {
+    font-size: 17px;
   }
 }
