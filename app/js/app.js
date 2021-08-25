@@ -6,13 +6,6 @@ const currentTimeZone   = document.querySelector('.timeZone');
 const currentIsp        = document.querySelector('.isp');
 
 
-let lat;
-let lng;
-let ipAddress;
-let locate;
-let timeZone;
-let isp;
-
 // ? this is to load map from leaflet library
 const mymap = L.map('mapid').setView([4.2105 , 101.9758], 5);
 
@@ -51,7 +44,7 @@ const getIpAddress = async() => {
         const ip = data.ip.toString();
         console.log(ip);
         input.value = ip;
-        getGeoLocation(ip);
+        // getGeoLocation();
         
     } catch (error) {
         alert(error.message);
@@ -60,19 +53,26 @@ const getIpAddress = async() => {
 };
 
 //? this is to get client geolocation detail 
-const getGeoLocation = async(ip) => {
+const getGeoLocation = async() => {
     try {
       
-        const geoData = await getRequest(`https://geo.ipify.org/api/v1?apiKey=at_XN3W4lPAL1BdazDkVUqRlf0fAMzKd&ipAddress=${ip}`);
+        const geoData = await getRequest(`https://geo.ipify.org/api/v1?apiKey=at_XN3W4lPAL1BdazDkVUqRlf0fAMzKd&ipAddress=${input.value}`);
         console.log(geoData);
-        lat = geoData.location.lat;
-        lng = geoData.location.lng;
-        ipAddress = geoData.ip;
-        locate = geoData.location.region;
-        timeZone = geoData.location.timezone;
-        isp = geoData.isp;
-    
-        console.log(lat);
+        const lat = geoData.location.lat;
+        const lng = geoData.location.lng;
+        const ipAddress = geoData.ip;
+        const locate = geoData.location.region;
+        const timeZone = geoData.location.timezone;
+        const isp = geoData.isp;
+
+        currentIpAddress.innerHTML = ipAddress;
+        currentLocation.innerHTML = locate;
+        currentTimeZone.innerHTML = timeZone;
+        currentIsp.innerHTML = isp;
+
+        L.marker([lat, lng]).addTo(mymap);
+        mymap.setView(new L.LatLng(lat, lng), 10);
+
     } catch (error) {
         
         alert(error.message);
@@ -83,23 +83,9 @@ getIpAddress();
 
 
 //? this is to search function
-const searchIp = (e) => {
+const searchIp = () => {
 
-    if (e.target.tagName === 'BUTTON') {
-        // console.log('click');
-
-        //* this is to set view client location
-        mymap.setView(new L.LatLng(lat, lng), 10);
-        //* this is to set marker on client location
-        L.marker([lat, lng]).addTo(mymap)
-        .bindPopup(`${ipAddress} location`)
-        .openPopup();
-
-        currentIpAddress.innerHTML = ipAddress;
-        currentLocation.innerHTML = locate;
-        currentTimeZone.innerHTML = timeZone;
-        currentIsp.innerHTML = isp;
-    }   
+    getGeoLocation();
 };
 
 searchIpButton.addEventListener('click', searchIp);
